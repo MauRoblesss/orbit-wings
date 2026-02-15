@@ -16,7 +16,11 @@ echo "Instalando Nginx..."
 apt update -y
 apt install -y nginx
 
-echo "Eliminando solo la página default..."
+echo "Eliminando configuración default..."
+rm -f /etc/nginx/sites-enabled/default
+rm -f /etc/nginx/sites-available/default
+
+echo "Eliminando página default..."
 rm -f /var/www/html/index.nginx-debian.html
 
 echo "Reiniciando Nginx..."
@@ -25,4 +29,4 @@ systemctl restart nginx
 echo "Creando carpeta /srv/server_certs/ ..."
 mkdir -p /srv/server_certs/
 
-echo "Listo 🚀"
+echo "Servidor limpio 🚀"
